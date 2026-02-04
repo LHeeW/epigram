@@ -1,0 +1,62 @@
+html {
+  font-size: 62.5%;
+}
+
+:root {
+  /* 폰트 설정 */
+  --font-family-pretendard: var(--font-pretendard), sans-serif;
+  --font-family-batang: var(--font-batang), sans-serif;
+
+  /* 색상 */
+  --black-100: rgb(120, 120, 120);
+  --black-200: rgb(107, 107, 107);
+  --black-300: rgb(94, 94, 94);
+  --black-400: rgb(82, 82, 82);
+  --black-500: rgb(69, 69, 69);
+  --black-600: rgb(55, 55, 55);
+  --black-700: rgb(43, 43, 43);
+  --black-800: rgb(31, 31, 31);
+  --black-900: rgb(18, 18, 18);
+  --black-950: rgb(5, 5, 5);
+
+  --blue-100: rgb(255, 255, 255);
+  --blue-200: rgb(236, 239, 244);
+  --blue-300: rgb(203, 211, 225);
+  --blue-400: rgb(171, 184, 206);
+  --blue-500: rgb(139, 157, 188);
+  --blue-600: rgb(106, 130, 169);
+  --blue-700: rgb(82, 105, 142);
+  --blue-800: rgb(64, 81, 110);
+  --blue-900: rgb(45, 57, 78);
+  --blue-950: rgb(26, 33, 45);
+
+  --gray-100: rgb(222, 222, 222);
+  --gray-200: rgb(196, 196, 196);
+  --gray-300: rgb(171, 171, 171);
+  --gray-400: rgb(145, 145, 145);
+
+  --illust-yellow: #fbc85b;
+  --illust-green: #48bb98;
+  --illust-purple: #8e80e3;
+  --illust-blue: #5195ee;
+  --illust-red: #e46e80;
+  --illust-brown: #9a695e;
+  --illust-sub-yellow: #e8aa26;
+  --illust-sub-blue1: #3e3e3e;
+  --illust-sub-blue2: #3e414d;
+  --illust-sub-blue3: #494d59;
+  --illust-sub-gray1: #c7d1e0;
+  --illust-sub-gray2: #e3e9f1;
+  --illust-sub-gray3: #eff3f8;
+
+  --background: #f5f7fa;
+  --state: #ff6577;
+
+  --line-100: #f2f2f2;
+  --line-200: #cfdbea;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-family-pretendard);
+}
