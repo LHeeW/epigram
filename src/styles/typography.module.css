@@ -1,0 +1,108 @@
+/* pretendard 글자 크기 */
+.text3xl {
+  font-size: 3.2rem;
+  line-height: 4.2rem;
+}
+
+.text2xl {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+}
+
+.textxl {
+  font-size: 2rem;
+  line-height: 3.2rem;
+}
+
+.text2lg {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.textlg {
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.textmd {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+.textsm {
+  font-size: 1.3rem;
+  line-height: 2.2rem;
+}
+
+.textxs_semi {
+  font-size: 1.2rem;
+  line-height: 2rem;
+}
+
+.textxs {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+/* lropke batang 글자 크기 */
+.text4xl_batang {
+  font-family: var(--font-family-batang);
+  font-size: 4rem;
+  line-height: 5.2rem;
+}
+
+.text3xl_batang {
+  font-family: var(--font-family-batang);
+  font-size: 3.2rem;
+  line-height: 4.8rem;
+}
+
+.text2xl_batang {
+  font-family: var(--font-family-batang);
+  font-size: 2.4rem;
+  line-height: 4rem;
+}
+
+.textxl_batang {
+  font-family: var(--font-family-batang);
+  font-size: 2rem;
+  line-height: 2.8rem;
+}
+
+.textlg_batang {
+  font-family: var(--font-family-batang);
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+}
+
+.textmd_batang {
+  font-family: var(--font-family-batang);
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
+
+.textsm_batang {
+  font-family: var(--font-family-batang);
+  font-size: 1.3rem;
+  line-height: 2rem;
+}
+
+.textxs_batang {
+  font-family: var(--font-family-batang);
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+}
+
+/* 굵기 */
+.bold {
+  font-weight: 700;
+}
+.semibold {
+  font-weight: 600;
+}
+.medium {
+  font-weight: 500;
+}
+.regular {
+  font-weight: 400;
+}
