@@ -1,0 +1,29 @@
+.logo_container {
+  display: block;
+  max-height: 3.6rem;
+}
+
+.search_container,
+.person_container {
+  display: block;
+  max-height: 2rem;
+}
+
+.search_icon,
+.person_icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+@media screen and (min-width: 1440px) {
+  .search_container,
+  .person_container {
+    max-height: 3.6rem;
+  }
+
+  .search_icon,
+  .person_icon {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}
