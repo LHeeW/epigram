@@ -154,6 +154,9 @@ table {
   --gray-300: rgb(171, 171, 171);
   --gray-400: rgb(145, 145, 145);
 
+  --white: #ffffff;
+  --black: #000000;
+
   --illust-yellow: #fbc85b;
   --illust-green: #48bb98;
   --illust-purple: #8e80e3;
