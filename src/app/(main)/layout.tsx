@@ -1,5 +1,4 @@
 import Header from "@/components/Header/header";
-import styles from "./page.module.css";
 
 export default function MainLayout({
   children,
@@ -9,7 +8,7 @@ export default function MainLayout({
   return (
     <>
       <Header />
-      <main className={styles.container}>{children}</main>
+      <main>{children}</main>
     </>
   );
 }

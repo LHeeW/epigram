@@ -1,5 +1,5 @@
-import Providers from "@/components/providers";
 import localFont from "next/font/local";
+import Providers from "@/components/providers";
 import "./globals.css";
 
 const pretendard = localFont({
