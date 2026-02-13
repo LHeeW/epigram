@@ -1,30 +1,42 @@
 import { useQuery } from "@tanstack/react-query";
 import {
-  getEmotionLogsMonthly,
-  getEmotionLogsToday,
-} from "@/apis/EmotionLog/emotion-log-api";
-import type {
-  GetEmotionLogsMonthlyRequest,
-  GetEmotionLogsTodayRequest,
-} from "@/apis/EmotionLog/emotion-log-api-types";
-import { emotionLogKeys } from "../query-keys";
+  getUsersId,
+  getUsersIdComments,
+  getUsersMe,
+} from "@/apis/User/user-api";
+import type { GetUsersIdCommentsRequest } from "@/apis/User/user-api-types";
+import { userKeys } from "../query-keys";
 
-// GET emotionLogs/today
-export const useGetEmotionLogsTodayQuery = (
-  params: GetEmotionLogsTodayRequest,
-) => {
+// GET users/me
+export const useGetUserMeQuery = () => {
   return useQuery({
-    queryKey: emotionLogKeys.today(params),
-    queryFn: () => getEmotionLogsToday(params),
+    queryKey: userKeys.me(),
+    queryFn: () => getUsersMe(),
   });
 };
 
-// GET emotionLogs/monthly
-export const useEmotionLogsMonthlyQuery = (
-  params: GetEmotionLogsMonthlyRequest,
+export const useGetUserQuery = () => {
+  return useQuery({
+    queryKey: userKeys.me(),
+    queryFn: () => getUsersMe(),
+  });
+};
+
+// GET users/me
+export const useGetUserDetailQuery = (id: number) => {
+  return useQuery({
+    queryKey: userKeys.detail(id),
+    queryFn: () => getUsersId(id),
+  });
+};
+
+// GET users/id/comments
+export const useGetUserCommentsQuery = (
+  id: number,
+  params: GetUsersIdCommentsRequest,
 ) => {
   return useQuery({
-    queryKey: emotionLogKeys.monthly(params),
-    queryFn: () => getEmotionLogsMonthly(params),
+    queryKey: userKeys.comments(id, params),
+    queryFn: () => getUsersIdComments(id, params),
   });
 };

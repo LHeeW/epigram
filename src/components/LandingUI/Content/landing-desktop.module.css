@@ -1,0 +1,14 @@
+.container {
+  display: none;
+}
+
+@media (min-width: 1440px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 38rem;
+
+    padding-top: 24rem;
+  }
+}

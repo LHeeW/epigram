@@ -1,0 +1,40 @@
+.form_container {
+  display: flex;
+  width: 100%;
+  max-width: 31.2rem;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.btn {
+  padding: 0.9rem;
+
+  border: 1px solid var(--blue-200);
+  border-radius: 1.2rem;
+
+  font-size: 1.6rem;
+  line-height: 2.6rem;
+  font-weight: 600;
+
+  color: var(--blue-100);
+  background-color: var(--black-500);
+  cursor: pointer;
+}
+
+@media (min-width: 744px) {
+  .form_container {
+    max-width: 38.4rem;
+    gap: 4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .form_container {
+    max-width: 64rem;
+  }
+
+  .btn {
+    font-size: 2rem;
+    line-height: 3.2rem;
+  }
+}

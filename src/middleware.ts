@@ -37,6 +37,7 @@ export async function middleware(request: NextRequest) {
           httpOnly: true,
           secure: process.env.NODE_ENV === "production",
           sameSite: "lax",
+          path: "/",
           maxAge: 60 * 60,
         });
       } else {
@@ -46,6 +47,35 @@ export async function middleware(request: NextRequest) {
     } catch (e) {
       console.error("Middleware refresh error", e);
     }
+  }
+
+  if (pathname.startsWith("/api/")) {
+    const currentAT = response.cookies.get(authKeys.ACCESS_TOKEN)?.value || at;
+    const requestHeaders = new Headers(request.headers);
+
+    if (currentAT) {
+      requestHeaders.set("Authorization", `Bearer ${currentAT}`);
+    }
+
+    const apiResponse = NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    });
+
+    // 재발급된 토큰이 response에 존재한다면 브라우저에도 전달될 수 있게 apiResponse에 동기화
+    const newAT = response.cookies.get(authKeys.ACCESS_TOKEN);
+    if (newAT) {
+      apiResponse.cookies.set(authKeys.ACCESS_TOKEN, newAT.value, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: "lax",
+        path: "/",
+        maxAge: 60 * 60,
+      });
+    }
+
+    return apiResponse;
   }
 
   const isProtectRoutes = protectedRoutes.some((route) =>
@@ -73,3 +103,16 @@ export async function middleware(request: NextRequest) {
 
   return response;
 }
+
+/*
+ * 아래로 시작하는 경로를 제외한 모든 요청에 미들웨어 적용:
+ * - _next/static (정적 파일)
+ * - _next/image (이미지 최적화 파일)
+ * - favicon.ico (파비콘)
+ * - public 폴더 안의 이미지 등
+ */
+export const config = {
+  matcher: [
+    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+  ],
+};

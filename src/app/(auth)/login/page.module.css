@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 5rem;
+}
+
+.form_container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.span_container {
+  display: flex;
+  width: 100%;
+  max-width: 31.2rem;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.span_container > span {
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  font-weight: 500;
+  color: var(--blue-400);
+}
+
+.span_container > a {
+  font-size: 1.4rem;
+  line-height: 2.6rem;
+  font-weight: 500;
+  color: var(--black-500);
+}
+
+@media (min-width: 744px) {
+  .logo_container {
+    gap: 6rem;
+  }
+
+  .span_container {
+    max-width: 38.4rem;
+  }
+
+  .span_container > span {
+    font-size: 1.6rem;
+    line-height: 2.6rem;
+  }
+
+  .span_container > a {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .span_container {
+    max-width: 64rem;
+  }
+
+  .span_container > span {
+    font-size: 2rem;
+    line-height: 3.2rem;
+  }
+
+  .span_container > a {
+    font-size: 2rem;
+  }
+}
