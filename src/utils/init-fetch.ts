@@ -8,6 +8,11 @@ export async function initFetch<T>(
   const isServer = typeof window === "undefined";
   const headers = new Headers(options.headers);
 
+  // body가 존재하고, formdata(image,file 등록)가 아니면 content-type 강제 설정
+  if (options.body && !(options.body instanceof FormData)) {
+    headers.set("Content-Type", "application/json");
+  }
+
   // 서버일 때만 수동으로 토큰 주입 (미들웨어가 이미 구워준 쿠키를 활용)
   if (isServer) {
     const { cookies } = await import("next/headers");
