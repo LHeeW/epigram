@@ -1,42 +1,215 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* reset css */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
-@media (prefers-color-scheme: dark) {
+:root {
+  /* 화면 높이 */
+  --app-height: 100vh;
+
+  /* 폰트 설정 */
+  --font-family-pretendard: var(--font-pretendard), sans-serif;
+  --font-family-batang: var(--font-batang), sans-serif;
+
+  /* 색상 */
+  --black-100: rgb(120, 120, 120);
+  --black-200: rgb(107, 107, 107);
+  --black-300: rgb(94, 94, 94);
+  --black-400: rgb(82, 82, 82);
+  --black-500: rgb(69, 69, 69);
+  --black-600: rgb(55, 55, 55);
+  --black-700: rgb(43, 43, 43);
+  --black-800: rgb(31, 31, 31);
+  --black-900: rgb(18, 18, 18);
+  --black-950: rgb(5, 5, 5);
+
+  --blue-100: rgb(255, 255, 255);
+  --blue-200: rgb(236, 239, 244);
+  --blue-300: rgb(203, 211, 225);
+  --blue-400: rgb(171, 184, 206);
+  --blue-500: rgb(139, 157, 188);
+  --blue-600: rgb(106, 130, 169);
+  --blue-700: rgb(82, 105, 142);
+  --blue-800: rgb(64, 81, 110);
+  --blue-900: rgb(45, 57, 78);
+  --blue-950: rgb(26, 33, 45);
+
+  --gray-100: rgb(222, 222, 222);
+  --gray-200: rgb(196, 196, 196);
+  --gray-300: rgb(171, 171, 171);
+  --gray-400: rgb(145, 145, 145);
+
+  --white: #ffffff;
+  --black: #000000;
+
+  --illust-yellow: #fbc85b;
+  --illust-green: #48bb98;
+  --illust-purple: #8e80e3;
+  --illust-blue: #5195ee;
+  --illust-red: #e46e80;
+  --illust-brown: #9a695e;
+  --illust-sub-yellow: #e8aa26;
+  --illust-sub-blue1: #3e3e3e;
+  --illust-sub-blue2: #3e414d;
+  --illust-sub-blue3: #494d59;
+  --illust-sub-gray1: #c7d1e0;
+  --illust-sub-gray2: #e3e9f1;
+  --illust-sub-gray3: #eff3f8;
+
+  --background: #f5f7fa;
+  --state: #ff6577;
+
+  --line-100: #f2f2f2;
+  --line-200: #cfdbea;
+}
+
+@supports (height: 100dvh) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --app-height: 100dvh;
   }
 }
 
 html,
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
+  min-height: var(--app-height);
+}
+
+html {
+  font-size: 62.5%;
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  font-family: var(--font-family-pretendard);
+  line-height: 1.5;
+  background-color: var(--background);
 }
 
-* {
+main {
+  flex: 1;
+  width: 100%;
+}
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
