@@ -30,6 +30,6 @@ export async function postRefreshToken({
 }) {
   return await initFetch<{ accessToken: string }>("/auth/refresh-token", {
     method: "POST",
-    body: JSON.stringify(refreshToken),
+    body: JSON.stringify({ refreshToken }),
   });
 }

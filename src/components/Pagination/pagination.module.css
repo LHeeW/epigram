@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.page_btn_selected {
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  background-color: var(--blue-600);
+}
+
+.page_btn {
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+  background-color: var(--blue-300);
+}

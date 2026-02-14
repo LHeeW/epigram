@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.epigram_container {
+  display: flex;
+  padding: 2.4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  border-radius: 1.6rem;
+
+  background-color: var(--blue-100);
+  background-image: linear-gradient(var(--line-100) 0.1rem, transparent 0.1rem);
+  background-size: 100% 2.5rem;
+
+  box-shadow: 0 0.3rem 1.2rem 0 #0000000a;
+}
+
+.content {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--black-600);
+}
+
+.author {
+  align-self: end;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--blue-400);
+}
+
+.tag_container {
+  align-self: end;
+  display: flex;
+  gap: 0.8rem;
+}
+
+.tag {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--blue-400);
+}
+
+@media (min-width: 744px) {
+  .tag_container {
+    gap: 1.2rem;
+  }
+
+  .content,
+  .author,
+  .tag {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .tag_container {
+    gap: 1.6rem;
+  }
+
+  .content,
+  .author,
+  .tag {
+    font-size: 2.4rem;
+  }
+}

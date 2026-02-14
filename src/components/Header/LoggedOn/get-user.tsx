@@ -2,11 +2,18 @@
 
 import Link from "next/link";
 import UserIcon from "@/../public/icons/user_icon.svg";
+import type { UserResponse } from "@/apis/User/user-api-types";
 import { useGetUserMeQuery } from "@/hooks/TanstackQuery/Query/use-user-query";
 import styles from "./get.user.module.css";
 
-export default function GetUser() {
-  const { data: user } = useGetUserMeQuery();
+export default function GetUser({
+  initialUser,
+}: {
+  initialUser?: UserResponse;
+}) {
+  const { data: user } = useGetUserMeQuery({
+    initialData: initialUser,
+  });
 
   return (
     <Link href={"/mypage"} className={styles.user_container}>

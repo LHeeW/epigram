@@ -1,49 +1,73 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import {
+  UseMutationOptions,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
 import {
   deleteCommentsId,
   patchCommentsId,
   postComments,
 } from "@/apis/Comment/comment-api";
-import type { PatchCommentsRequest } from "@/apis/Comment/comment-api-types";
+import type {
+  PatchCommentsRequest,
+  PatchCommentsResponse,
+  PostCommentsRequest,
+  PostCommentsResponse,
+} from "@/apis/Comment/comment-api-types";
 import { commentKeys } from "../query-keys";
 
 // POST comments
-export const usePostCommentsMutation = () => {
+export const usePostCommentsMutation = (
+  options?: UseMutationOptions<
+    PostCommentsResponse,
+    Error,
+    PostCommentsRequest
+  >,
+) => {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: postComments,
-    onSuccess: () => {
+    ...options,
+    onSuccess: (...args) => {
       queryClient.invalidateQueries({ queryKey: commentKeys.lists() });
+      options?.onSuccess?.(...args);
     },
   });
 };
 
 // PATCH comments/id
-export const useUpdateCommentsMutation = () => {
+export const useUpdateCommentsMutation = (
+  options?: UseMutationOptions<
+    PatchCommentsResponse,
+    Error,
+    { id: number; data: PatchCommentsRequest }
+  >,
+) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: ({ id, data }: { id: number; data: PatchCommentsRequest }) =>
-      patchCommentsId(id, data),
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: commentKeys.lists(),
-      });
+    mutationFn: ({ id, data }) => patchCommentsId(id, data),
+    ...options,
+    onSuccess: (...args) => {
+      queryClient.invalidateQueries({ queryKey: commentKeys.lists() });
+      options?.onSuccess?.(...args);
     },
   });
 };
 
 // DELETE comments/id
-export const useDeleteCommentsMutation = () => {
+export const useDeleteCommentsMutation = (
+  options?: UseMutationOptions<Record<string, any>, Error, number>,
+) => {
   const queryClient = useQueryClient();
 
   return useMutation({
     mutationFn: deleteCommentsId,
-    onSuccess: () => {
-      queryClient.invalidateQueries({
-        queryKey: commentKeys.lists(),
-      });
+    ...options,
+    onSuccess: (...args) => {
+      queryClient.invalidateQueries({ queryKey: commentKeys.lists() });
+      options?.onSuccess?.(...args);
     },
   });
 };

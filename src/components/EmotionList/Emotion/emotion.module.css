@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  gap: 0.8rem;
+  border: none;
+  background-color: var(--background);
+  cursor: pointer;
+}
+
+.emotion_icon {
+  width: 5.6rem;
+  height: 5.6rem;
+  padding: 1.2rem;
+  border: none;
+  border-radius: 1.6rem;
+  background-color: #afbacd26;
+}
+
+.selectedEmotion {
+  border: 0.2rem solid var(--illust-yellow);
+}
+
+.emotion_title {
+  align-self: center;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #999999;
+}
+
+@media (min-width: 744px) {
+  .emotion_icon {
+    width: 6.4rem;
+    height: 6.4rem;
+    padding: 1.6rem;
+  }
+
+  .emotion_title {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .emotion_icon {
+    width: 9.6rem;
+    height: 9.6rem;
+    padding: 2.4rem;
+  }
+
+  .emotion_title {
+    font-size: 2rem;
+  }
+}
