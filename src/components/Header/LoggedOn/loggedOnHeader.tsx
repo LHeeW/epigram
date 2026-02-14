@@ -4,6 +4,7 @@ import Link from "next/link";
 import MenuIcon from "@/../public/icons/hamburger_menu_icon.svg";
 import LogoImage from "@/../public/images/logo_lg.webp";
 import { getUsersMe } from "@/apis/User/user-api";
+import { UserResponse } from "@/apis/User/user-api-types";
 import { userKeys } from "@/hooks/TanstackQuery/query-keys";
 import { getQueryClient } from "@/utils/get-server-query-client";
 import GetUser from "./get-user";
@@ -11,11 +12,12 @@ import styles from "./loggedOnHeader.module.css";
 
 export default async function LoggedOnHeader() {
   const queryClient = getQueryClient();
+
   await queryClient.prefetchQuery({
     queryKey: userKeys.me(),
     queryFn: getUsersMe,
-    staleTime: 1000 * 60,
   });
+  const user = queryClient.getQueryData<UserResponse>(userKeys.me());
 
   return (
     <div className={styles.container}>
@@ -37,7 +39,7 @@ export default async function LoggedOnHeader() {
         </Link>
       </div>
       <HydrationBoundary state={dehydrate(queryClient)}>
-        <GetUser />
+        <GetUser initialUser={user} />
       </HydrationBoundary>
     </div>
   );

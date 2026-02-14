@@ -17,7 +17,7 @@ export async function SiginAction(data: SignInRequest) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
-      maxAge: 60 * 60,
+      maxAge: 60 * 10,
     });
 
     cookieStore.set(authKeys.REFRESHTOKEN, response.refreshToken, {
@@ -25,7 +25,7 @@ export async function SiginAction(data: SignInRequest) {
       secure: process.env.NODE_ENV === "production",
       sameSite: "lax",
       path: "/",
-      maxAge: 60 * 60 * 24,
+      maxAge: 60 * 60,
     });
 
     revalidatePath("/", "layout");

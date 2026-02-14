@@ -12,7 +12,7 @@ const protectedRoutes = [
 ];
 
 // 인증이 없는 상태에서는 접근가능한 라우트 목록
-const authRoutes = ["/login", "/signin"];
+const authRoutes = ["/login", "/signup"];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -38,7 +38,7 @@ export async function middleware(request: NextRequest) {
           secure: process.env.NODE_ENV === "production",
           sameSite: "lax",
           path: "/",
-          maxAge: 60 * 60,
+          maxAge: 60 * 10,
         });
       } else {
         response.cookies.delete(authKeys.ACCESS_TOKEN);
@@ -71,7 +71,7 @@ export async function middleware(request: NextRequest) {
         secure: process.env.NODE_ENV === "production",
         sameSite: "lax",
         path: "/",
-        maxAge: 60 * 60,
+        maxAge: 60 * 10,
       });
     }
 
@@ -94,7 +94,7 @@ export async function middleware(request: NextRequest) {
   }
 
   if (authRoutes.includes(pathname)) {
-    if (rt) {
+    if (at || rt) {
       const rootPage = new URL("/", request.url);
 
       return NextResponse.redirect(rootPage);
