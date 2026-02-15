@@ -26,11 +26,6 @@ export default function Page() {
         </div>
       </div>
 
-      <div className={styles.comments_container}>
-        <h3 className={styles.comments_title}>최신 댓글</h3>
-        <NewestComment />
-      </div>
-
       <Link href={"/addepigram"} className={styles.create_epigram_btn}>
         <PlusIcon />
       </Link>

@@ -1,0 +1,159 @@
+.epigram_container {
+  display: flex;
+  padding: 3.4rem 0;
+  flex-direction: column;
+  gap: 3.2rem;
+  align-items: center;
+
+  background-color: #f0f0f0;
+  background-image: linear-gradient(#dadada 0.1rem, transparent 0.1rem);
+  background-size: 100% 2.5rem;
+
+  --mask:
+    conic-gradient(from -45deg at bottom, #000 90deg, #0000 0) left / 2rem 100%
+    repeat-x;
+  --webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+.epigram_content_container {
+  display: flex;
+  width: 100%;
+  max-width: 31.2rem;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.tag_kebab_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tag_container {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.tag {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--blue-400);
+}
+
+.kebab_btn {
+  padding: 0;
+  width: 2.4rem;
+  height: 2.4rem;
+  border: none;
+  background-color: #f0f0f0;
+}
+
+.kebab_icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.content {
+  font-size: 2.4rem;
+  font-weight: 400;
+  color: var(--black-700);
+}
+
+.author {
+  align-self: end;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--blue-400);
+}
+
+.btn_container {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.like_btn,
+.link_btn {
+  display: flex;
+  padding: 0.6rem 1.4rem;
+  align-items: center;
+  gap: 0.4rem;
+  border: none;
+  border-radius: 10rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.like_btn {
+  color: var(--blue-100);
+  background-color: var(--black-600);
+}
+
+.like_icon,
+.link_icon {
+  width: 2rem;
+  height: 2rem;
+}
+
+.link_btn {
+  color: #ababab;
+  background-color: #e0e0e0;
+}
+
+@media (min-width: 744px) {
+  .epigram_container {
+    padding: 3.6rem 0;
+  }
+
+  .epigram_content_container {
+    max-width: 38.4rem;
+    gap: 2.4rem;
+  }
+
+  .author {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .epigram_container {
+    padding: 4rem 0;
+  }
+
+  .epigram_content_container {
+    max-width: 64rem;
+    gap: 3.2rem;
+  }
+
+  .tag {
+    font-size: 2rem;
+  }
+
+  .kebab_btn,
+  .kebab_icon {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+
+  .content {
+    font-size: 3.2rem;
+  }
+
+  .author {
+    font-size: 2.4rem;
+  }
+
+  .like_btn,
+  .link_btn {
+    font-size: 2rem;
+  }
+
+  .like_icon,
+  .link_icon {
+    width: 3.6rem;
+    height: 3.6rem;
+  }
+}

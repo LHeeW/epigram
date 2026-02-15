@@ -1,0 +1,118 @@
+.hr {
+  width: 100%;
+  border: 0.1rem solid var(--line-200);
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 31.2rem;
+  gap: 1.6rem;
+}
+
+.image {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 10rem;
+  object-fit: cover;
+}
+
+.content_container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.title_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name_container {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.name {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(black-300);
+}
+
+.time {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--black-300);
+}
+
+.btn_container {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.update_btn,
+.delete_btn {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+  background-color: var(--background);
+}
+
+.update_btn {
+  color: var(--black-600);
+}
+
+.delete_btn {
+  color: var(--state);
+}
+
+.content {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--black-700);
+}
+
+@media (min-width: 744px) {
+  .container {
+    max-width: 33.6rem;
+  }
+
+  .content_container {
+    gap: 1.2rem;
+  }
+
+  .name,
+  .time,
+  .update_btn,
+  .delete_btn {
+    font-size: 1.4rem;
+  }
+
+  .content {
+    font-size: 1.6rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 64rem;
+  }
+
+  .content_container {
+    gap: 1.6rem;
+  }
+
+  .name,
+  .time,
+  .update_btn,
+  .delete_btn {
+    font-size: 1.6rem;
+  }
+
+  .content {
+    font-size: 2rem;
+  }
+}

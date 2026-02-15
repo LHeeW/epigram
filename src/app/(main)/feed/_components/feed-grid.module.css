@@ -1,0 +1,113 @@
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 31.2rem;
+  padding-top: 3.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.title_icon_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.grid_theme_btn {
+  padding: 0;
+  border: none;
+  background-color: var(--background);
+  cursor: pointer;
+}
+
+.menu_icon {
+  width: 2.4rem;
+  height: 2.4rem;
+}
+
+.my_masonry_grid {
+  display: flex;
+  margin-left: -1.6rem;
+  width: auto;
+}
+
+.my_masonry_grid_column {
+  padding-left: 1.6rem;
+  background-clip: padding-box;
+}
+
+.my_masonry_grid_column > div {
+  margin-bottom: 1.6rem;
+}
+
+.add_btn {
+  width: 2.4rem;
+  height: 2.4rem;
+
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1rem;
+
+  padding: 1.2rem;
+  box-sizing: content-box;
+
+  border-radius: 10rem;
+  background-color: var(--blue-900);
+  box-shadow: 0 0.4rem 0.4rem 0 #55555540;
+}
+
+@media (min-width: 744px) {
+  .container {
+    max-width: 60rem;
+  }
+
+  .menu_icon {
+    display: none;
+  }
+
+  .my_masonry_grid {
+    margin-left: -1.2rem;
+  }
+
+  .my_masonry_grid_column {
+    padding-left: 1.2rem;
+  }
+
+  .my_masonry_grid_column > div {
+    margin-bottom: 2.4rem;
+  }
+
+  .add_btn {
+    right: 3rem;
+    bottom: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 120rem;
+  }
+
+  .my_masonry_grid {
+    margin-left: -3rem;
+  }
+
+  .my_masonry_grid_column {
+    padding-left: 3rem;
+  }
+
+  .my_masonry_grid_column > div {
+    margin-bottom: 4rem;
+  }
+
+  .add_btn {
+    right: 6rem;
+    bottom: 4rem;
+  }
+}

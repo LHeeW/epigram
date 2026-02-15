@@ -1,0 +1,215 @@
+.comment_container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.comment_wrap {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 31.2rem;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.comment_title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--black-600);
+}
+
+.comment_image_input_container {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.user_profile_image {
+  width: 4.8rem;
+  height: 4.8rem;
+  border-radius: 10rem;
+}
+
+.comment_input_container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.comment_input {
+  padding: 1.2rem 1.6rem;
+  height: 6.6rem;
+  resize: none;
+  border: 0.1rem solid var(--black-600);
+  border-radius: 0.8rem;
+
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--black-700);
+}
+
+.comment_input::placeholder {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--gray-100);
+}
+
+.private_save_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.private_btn_container {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.private_text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--gray-400);
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 3.2rem;
+  height: 1.6rem;
+}
+
+/* 실제 체크박스는 숨기기 */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* 스위치 배경 (슬라이더) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 3.4rem;
+}
+
+/* 스위치 안의 흰색 동그라미 */
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 1.4rem;
+  height: 1.4rem;
+  left: 0.1rem;
+  bottom: 0.1rem;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+/* 체크되었을 때 배경색 변경 */
+input:checked + .slider {
+  background-color: var(--black-600);
+}
+
+/* 체크되었을 때 동그라미 이동 */
+input:checked + .slider:before {
+  transform: translateX(1.6rem);
+}
+
+.save_btn {
+  padding: 0.6rem 1.6rem;
+  border-radius: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--blue-100);
+  background-color: var(--black-500);
+}
+
+.comments_list_container {
+  display: flex;
+  width: 100%;
+  max-width: 36rem;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+@media (min-width: 744px) {
+  .comment_container {
+    gap: 3.2rem;
+  }
+
+  .comment_wrap {
+    max-width: 38.4rem;
+    gap: 2.4rem;
+  }
+
+  .comment_input {
+    height: 8rem;
+  }
+
+  .private_text {
+    font-size: 1.4rem;
+  }
+
+  .comments_list_container {
+    max-width: 38.4rem;
+    gap: 2.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .comment_container {
+    gap: 4rem;
+  }
+
+  .comment_wrap {
+    max-width: 64rem;
+  }
+
+  .comment_input {
+    height: 10.4rem;
+  }
+
+  .comment_input,
+  .comment_input::placeholder {
+    font-size: 2rem;
+  }
+
+  .private_text {
+    font-size: 1.6rem;
+  }
+
+  .switch {
+    width: 4.2rem;
+    height: 2.4rem;
+  }
+
+  .slider:before {
+    width: 1.6rem;
+    height: 1.6rem;
+    left: 0.4rem;
+    bottom: 0.4rem;
+  }
+
+  input:checked + .slider:before {
+    transform: translateX(1.8rem);
+  }
+
+  .save_btn {
+    padding: 0.9rem 1.6rem;
+  }
+
+  .comments_list_container {
+    max-width: 64rem;
+    gap: 3.5rem;
+    font-size: 1.6rem;
+  }
+}

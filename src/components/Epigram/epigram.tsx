@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { components } from "@/types/types";
 import styles from "./epigram.module.css";
 
@@ -7,7 +8,7 @@ interface EpigramsProps {
 
 export default function Epigram({ data }: EpigramsProps) {
   return (
-    <div className={styles.container}>
+    <Link href={`/epigrams/${data.id}`} className={styles.container}>
       <div className={styles.epigram_container}>
         <h3 className={styles.content}>{data.content}</h3>
         <span className={styles.author}>- {data.author} -</span>
@@ -19,6 +20,6 @@ export default function Epigram({ data }: EpigramsProps) {
           </span>
         ))}
       </div>
-    </div>
+    </Link>
   );
 }
