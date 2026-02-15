@@ -32,7 +32,8 @@ export const epigramKeys = {
     [...epigramKeys.all, "list", params] as const,
   today: () => [...epigramKeys.all, "today"] as const,
   detail: (id: number) => [...epigramKeys.all, id] as const,
-  comments: (id: number, params: GetEpigramsCommentListRequest) =>
+  comments: (id: number) => [...epigramKeys.detail(id), "comments"] as const,
+  comment: (id: number, params: GetEpigramsCommentListRequest) =>
     [...epigramKeys.detail(id), "comments", params] as const,
 };
 

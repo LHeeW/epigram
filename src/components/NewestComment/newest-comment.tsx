@@ -3,7 +3,7 @@
 import { keepPreviousData } from "@tanstack/react-query";
 import { useState } from "react";
 import { useGetCommentsQuery } from "@/hooks/TanstackQuery/Query/use-comment-query";
-import CommentComponent from "../Comment/comment-component";
+import CommentComponent from "../Comment/comment";
 import Pagination from "../Pagination/pagination";
 import styles from "./newest-comment.module.css";
 

@@ -1,5 +1,5 @@
 import {
-  UseMutationOptions,
+  type UseMutationOptions,
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
@@ -14,7 +14,7 @@ import type {
   PostCommentsRequest,
   PostCommentsResponse,
 } from "@/apis/Comment/comment-api-types";
-import { commentKeys } from "../query-keys";
+import { commentKeys, epigramKeys } from "../query-keys";
 
 // POST comments
 export const usePostCommentsMutation = (
@@ -30,7 +30,10 @@ export const usePostCommentsMutation = (
     mutationFn: postComments,
     ...options,
     onSuccess: (...args) => {
-      queryClient.invalidateQueries({ queryKey: commentKeys.lists() });
+      const [_, variables, __] = args;
+      queryClient.invalidateQueries({
+        queryKey: epigramKeys.comments(variables.epigramId),
+      });
       options?.onSuccess?.(...args);
     },
   });
@@ -41,7 +44,7 @@ export const useUpdateCommentsMutation = (
   options?: UseMutationOptions<
     PatchCommentsResponse,
     Error,
-    { id: number; data: PatchCommentsRequest }
+    { id: number; epigramId: number; data: PatchCommentsRequest }
   >,
 ) => {
   const queryClient = useQueryClient();
@@ -50,7 +53,10 @@ export const useUpdateCommentsMutation = (
     mutationFn: ({ id, data }) => patchCommentsId(id, data),
     ...options,
     onSuccess: (...args) => {
-      queryClient.invalidateQueries({ queryKey: commentKeys.lists() });
+      const [_, variables, __] = args;
+      queryClient.invalidateQueries({
+        queryKey: epigramKeys.comments(variables.epigramId),
+      });
       options?.onSuccess?.(...args);
     },
   });
@@ -58,15 +64,22 @@ export const useUpdateCommentsMutation = (
 
 // DELETE comments/id
 export const useDeleteCommentsMutation = (
-  options?: UseMutationOptions<Record<string, any>, Error, number>,
+  options?: UseMutationOptions<
+    Record<string, any>,
+    Error,
+    { id: number; epigramId: number }
+  >,
 ) => {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: deleteCommentsId,
+    mutationFn: ({ id }) => deleteCommentsId(id),
     ...options,
     onSuccess: (...args) => {
-      queryClient.invalidateQueries({ queryKey: commentKeys.lists() });
+      const [_, variables, __] = args;
+      queryClient.invalidateQueries({
+        queryKey: epigramKeys.comments(variables.epigramId),
+      });
       options?.onSuccess?.(...args);
     },
   });

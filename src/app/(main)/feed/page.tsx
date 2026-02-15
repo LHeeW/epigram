@@ -1,19 +1,19 @@
 "use client";
 
+import Epigram from "@/components/Epigram/epigram";
 import { useGetEpigramListInfiniteQuery } from "@/hooks/TanstackQuery/InfiniteQuery/use-epigram-infinite";
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
-import Epigram from "../Epigram/epigram";
-import styles from "./newest-epigrams.module.css";
+import FeedGrid from "./_components/feed-gird";
 
-const LIMIT = 3;
+const LIMIT = 8;
 
-export default function NewestEpigrams() {
+export default function Page() {
   const {
     data: epigramsList,
     isLoading,
-    isFetchingNextPage,
     fetchNextPage,
     hasNextPage,
+    isFetchingNextPage,
   } = useGetEpigramListInfiniteQuery({ limit: LIMIT });
 
   const { targetRef } = useIntersectionObserver({
@@ -22,32 +22,18 @@ export default function NewestEpigrams() {
     threshold: 1.0,
     rootMargin: "0px",
   });
-  const isEmpty = epigramsList?.pages[0].list.length === 0;
 
   if (isLoading) return <div>로딩중...</div>;
 
-  if (!epigramsList || isEmpty) {
-    return (
-      <div>
-        아직 생성된 에피그램이 없습니다!!
-        <br />
-        에피그램을 생성해보세요!
-      </div>
-    );
-  }
-
   return (
-    <>
-      <div className={styles.new_feed_epigrams_list_container}>
-        {epigramsList.pages.map((page) =>
-          page.list.map((epigram) => (
-            <Epigram key={epigram.id} data={epigram} />
-          )),
-        )}
-      </div>
+    <FeedGrid>
+      {epigramsList?.pages.map((page) =>
+        page.list.map((epigram) => <Epigram key={epigram.id} data={epigram} />),
+      )}
+
       <div ref={targetRef}>
         {isFetchingNextPage && <span>데이터를 가져오는 중입니다...</span>}
       </div>
-    </>
+    </FeedGrid>
   );
 }

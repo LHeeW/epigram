@@ -1,5 +1,5 @@
 import {
-  UseMutationOptions,
+  type UseMutationOptions,
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
@@ -130,7 +130,7 @@ export const useUpdateEpigramsLikeMutation = (
     },
     // 2. onError 수정
     onError: (...args) => {
-      const [err, variables, context] = args;
+      const [_, variables, context] = args;
       if (context?.prevData) {
         queryClient.setQueryData(
           epigramKeys.detail(variables.id),
@@ -141,7 +141,7 @@ export const useUpdateEpigramsLikeMutation = (
     },
     // 3. onSettled 수정
     onSettled: (...args) => {
-      const [data, error, variables] = args;
+      const [_, __, variables] = args;
       queryClient.invalidateQueries({
         queryKey: epigramKeys.detail(variables.id),
       });

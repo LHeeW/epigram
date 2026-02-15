@@ -1,0 +1,212 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.content_container,
+.author_container,
+.reference_container,
+.tag_container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.content_label,
+.author_label,
+.reference_label,
+.tag_label {
+  display: flex;
+  gap: 0.4rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--black-600);
+}
+
+.content_label_star,
+.author_label_star {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--state);
+}
+
+.content {
+  width: 100%;
+  max-width: 31.2rem;
+  height: 13.2rem;
+  padding: 1rem 1.6rem;
+  resize: none;
+  border: 0.1rem solid var(--blue-300);
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--blue-950);
+}
+
+.content::placeholder {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--blue-400);
+}
+
+.radio_btn_list_container {
+  display: flex;
+  gap: 1.6rem;
+}
+
+.radio_btn_label {
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: var(--black-600);
+}
+
+.radio_btn_input {
+  accent-color: var(--black-800);
+}
+
+.author_input,
+.reference_title_input,
+.reference_url_input,
+.tag_input {
+  padding: 1.6rem;
+  border: 0.1rem solid var(--blue-300);
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.author_input::placeholder,
+.reference_title_input::placeholder,
+.reference_url_input::placeholder,
+.tag_input::placeholder {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--blue-400);
+}
+
+.tag_list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem; /* 인풋과의 간격 */
+}
+
+.tag_chip {
+  display: flex;
+  align-items: center;
+  background-color: var(--blue-300); /* 예시 색상 */
+  padding: 0.4rem 0.8rem;
+  border-radius: 10rem;
+  font-size: 1.4rem;
+}
+
+.tag_remove_btn {
+  margin-left: 0.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+}
+
+.tag_input:disabled {
+  background-color: #f5f5f5;
+  cursor: not-allowed;
+}
+
+.submit_btn {
+  padding: 1.1rem 0;
+  width: 100%;
+  max-width: 31.2rem;
+  border: none;
+  border-radius: 1.2rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--blue-100);
+  background-color: var(--blue-950);
+  cursor: pointer;
+}
+
+@media (min-width: 744px) {
+  .content_label,
+  .author_label,
+  .reference_label,
+  .tag_label {
+    font-size: 1.6rem;
+  }
+
+  .content {
+    max-width: 38.4rem;
+  }
+
+  .submit_btn {
+    max-width: 38.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    gap: 4rem;
+  }
+
+  .content_label,
+  .author_label,
+  .reference_label,
+  .tag_label {
+    gap: 0.6rem;
+    font-size: 2rem;
+  }
+
+  .content_label_star,
+  .author_label_star {
+    font-size: 2.4rem;
+  }
+
+  .content {
+    max-width: 63rem;
+    height: 14.8rem;
+    font-size: 2rem;
+  }
+
+  .content::placeholder {
+    font-size: 2rem;
+  }
+
+  .radio_btn_list_container {
+    gap: 2.4rem;
+  }
+
+  .radio_btn_label {
+    font-size: 2rem;
+  }
+
+  .author_input,
+  .reference_title_input,
+  .reference_url_input,
+  .tag_input {
+    font-size: 2rem;
+  }
+
+  .author_input::placeholder,
+  .reference_title_input::placeholder,
+  .reference_url_input::placeholder,
+  .tag_input::placeholder {
+    font-size: 2rem;
+  }
+
+  .tag_list {
+    gap: 1.2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .tag_chip {
+    padding: 0.6rem 1.2rem;
+    font-size: 2rem;
+  }
+
+  .submit_btn {
+    padding: 1.6rem;
+    max-width: 64rem;
+    font-size: 2rem;
+  }
+}
