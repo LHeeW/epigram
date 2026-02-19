@@ -122,13 +122,20 @@ input:checked + .slider:before {
   transform: translateX(1.6rem);
 }
 
-.save_btn {
+.action_btns {
+  display: flex;
+  gap: 1rem;
+}
+
+.save_btn,
+.cancel_btn {
   padding: 0.6rem 1.6rem;
   border-radius: 0.8rem;
   font-size: 1.2rem;
   font-weight: 600;
   color: var(--blue-100);
   background-color: var(--black-500);
+  cursor: pointer;
 }
 
 .comments_list_container {
@@ -203,7 +210,8 @@ input:checked + .slider:before {
     transform: translateX(1.8rem);
   }
 
-  .save_btn {
+  .save_btn,
+  .cancel_btn {
     padding: 0.9rem 1.6rem;
   }
 

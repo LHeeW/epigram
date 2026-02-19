@@ -30,7 +30,7 @@ export const useGetEpigramCommentsInfiniteQuery = (
   params: Omit<GetEpigramsCommentListRequest, "cursor">,
 ) => {
   return useInfiniteQuery({
-    queryKey: epigramKeys.comments(id, params),
+    queryKey: epigramKeys.comment(id, params),
     queryFn: ({ pageParam = 0 }) =>
       getEpigramsCommentsList(id, { ...params, cursor: pageParam }),
     initialPageParam: 0,
