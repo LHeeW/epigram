@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 31.2rem;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.title_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--black-600);
+}
+
+.date {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--blue-400);
+}
+
+.emotion_list {
+  --emotion-bg: var(--blue-100);
+}
+
+@media (min-width: 744px) {
+  .container {
+    max-width: 38.4rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 64rem;
+  }
+
+  .title,
+  .date {
+    font-size: 2.4rem;
+  }
+}

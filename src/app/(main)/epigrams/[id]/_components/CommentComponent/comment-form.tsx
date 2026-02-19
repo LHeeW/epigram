@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useState } from "react";
-import SampleImage from "@/../public/images/space1.webp";
+import SampleImage from "@/../public/images/user.webp";
 import styles from "./comment-component.module.css";
 
 interface CommentFormProps {

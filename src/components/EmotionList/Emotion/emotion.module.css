@@ -4,7 +4,7 @@
   padding: 0;
   gap: 0.8rem;
   border: none;
-  background-color: var(--background);
+  background-color: var(--emotion-bg, var(--background));
   cursor: pointer;
 }
 

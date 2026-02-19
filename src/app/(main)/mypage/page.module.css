@@ -1,0 +1,33 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
+  align-items: center;
+}
+
+.content_container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 5.6rem;
+  align-items: center;
+  width: 100%;
+  max-width: 144rem;
+  margin-top: 6.4rem;
+  padding-top: 14rem;
+  border-radius: 2.4rem;
+  background-color: var(--blue-100);
+  box-shadow: 0 0 3.6rem 0 #0000003d;
+}
+
+@media (min-width: 744px) {
+  .content_container {
+    gap: 6rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .content_container {
+    gap: 16.4rem;
+  }
+}

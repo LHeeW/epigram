@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import SampleImage from "@/../public/images/space1.webp";
+import SampleImage from "@/../public/images/user.webp";
 import CommentForm from "@/app/(main)/epigrams/[id]/_components/CommentComponent/comment-form";
 import {
   useDeleteCommentsMutation,

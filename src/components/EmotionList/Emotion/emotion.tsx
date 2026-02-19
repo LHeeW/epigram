@@ -7,16 +7,21 @@ import styles from "./emotion.module.css";
 interface EmotionProps {
   children: React.ReactNode;
   emotion: EmotionListType;
+  className?: string;
 }
 
-export default function Emotion({ children, emotion }: EmotionProps) {
+export default function Emotion({
+  children,
+  emotion,
+  className,
+}: EmotionProps) {
   const { isSelected, handleEmotionClick } = useEmotionLogClick(
     emotion.emotion_type,
   );
 
   return (
     <button
-      className={styles.container}
+      className={`${styles.container} ${className ?? ""}`}
       type="button"
       onClick={() => handleEmotionClick(emotion.emotion_title)}
     >
