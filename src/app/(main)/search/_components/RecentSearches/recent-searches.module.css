@@ -1,0 +1,70 @@
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 31.2rem;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.title_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.delete_btn {
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--state);
+  background-color: var(--background);
+  cursor: pointer;
+}
+
+.recent_searches_container {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 744px) {
+  .container {
+    max-width: 38.4rem;
+    gap: 2.4rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .delete_btn {
+    font-size: 1.4rem;
+  }
+
+  .recent_searches_container {
+    gap: 1.6rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 64rem;
+    gap: 4rem;
+  }
+
+  .title {
+    font-size: 2.4rem;
+  }
+
+  .delete_btn {
+    font-size: 1.6rem;
+  }
+
+  .recent_searches_container {
+    gap: 1.6rem;
+  }
+}

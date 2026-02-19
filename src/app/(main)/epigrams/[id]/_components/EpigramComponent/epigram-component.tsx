@@ -2,11 +2,12 @@
 
 import Link from "next/link";
 import LinkIcon from "@/../public/icons/external_link_icon.svg";
-import KebabIcon from "@/../public/icons/kebab_menu_icon.svg";
 import LikeIcon from "@/../public/icons/like_icon.svg";
 import { useUpdateEpigramsLikeMutation } from "@/hooks/TanstackQuery/Mutation/use-epigram-mutation";
 import { useGetEpigramIdQuery } from "@/hooks/TanstackQuery/Query/use-epigram-query";
+import { useGetUserMeQuery } from "@/hooks/TanstackQuery/Query/use-user-query";
 import styles from "./epigram-component.module.css";
+import KebabBtn from "./kebab-btn";
 
 interface EpigramComponentProps {
   id: string;
@@ -14,6 +15,7 @@ interface EpigramComponentProps {
 
 export default function EpigramComponent({ id }: EpigramComponentProps) {
   const { data: epigram, isLoading } = useGetEpigramIdQuery(parseInt(id, 10));
+  const { data: user } = useGetUserMeQuery();
 
   const { mutate } = useUpdateEpigramsLikeMutation();
 
@@ -36,9 +38,9 @@ export default function EpigramComponent({ id }: EpigramComponentProps) {
               </span>
             )) ?? ""}
           </div>
-          <button className={styles.kebab_btn} type="button">
-            <KebabIcon className={styles.kebab_icon} />
-          </button>
+          {epigram.writerId === user?.id && (
+            <KebabBtn epigram={epigram} id={id} />
+          )}
         </div>
 
         <div className={styles.content}>{epigram.content}</div>

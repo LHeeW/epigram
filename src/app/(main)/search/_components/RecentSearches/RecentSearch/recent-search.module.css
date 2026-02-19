@@ -1,0 +1,24 @@
+.recent_search {
+  padding: 0.8rem 1.2rem;
+  border: none;
+  border-radius: 1.8rem;
+  background-color: var(--gray-100);
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: var(--black-300);
+  cursor: pointer;
+}
+
+@media (min-width: 744px) {
+  .recent_search {
+    border-radius: 2rem;
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .recent_search {
+    border-radius: 2.2rem;
+    font-size: 2.4rem;
+  }
+}
