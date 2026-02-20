@@ -22,12 +22,17 @@ const EMOTION_COLORS: Record<string, string> = {
   ANGRY: "#FF5C5C",
 };
 
-export default function Charts() {
+interface ChartsProps {
+  year: number;
+  month: number;
+}
+
+export default function Charts({ year, month }: ChartsProps) {
   const { data: userData } = useGetUserMeQuery();
   const { data: emotionLogs } = useEmotionLogsMonthlyQuery({
     userId: userData?.id as number,
-    year: 2026,
-    month: 2,
+    year,
+    month,
   });
 
   const chartData = useMemo(() => {

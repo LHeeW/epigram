@@ -1,4 +1,4 @@
-import Charts from "./_components/\bCharts/charts";
+import CustomCalendar from "./_components/Calendar/calendar";
 import MyEpigrams from "./_components/MyEpigrams/my-epigrams";
 import ProfileImage from "./_components/ProfileImage/profile-image";
 import TodayEmotion from "./_components/TodayEmotion/today-emotion";
@@ -10,8 +10,7 @@ export default function Page() {
       <div className={styles.content_container}>
         <ProfileImage />
         <TodayEmotion />
-        <div>달력</div>
-        <Charts />
+        <CustomCalendar />
       </div>
       <MyEpigrams />
     </div>
