@@ -3,6 +3,7 @@
 import { keepPreviousData } from "@tanstack/react-query";
 import { useState } from "react";
 import { useGetCommentsQuery } from "@/hooks/TanstackQuery/Query/use-comment-query";
+import { useGetUserMeQuery } from "@/hooks/TanstackQuery/Query/use-user-query";
 import CommentComponent from "../Comment/comment";
 import Pagination from "../Pagination/pagination";
 import styles from "./newest-comment.module.css";
@@ -11,6 +12,8 @@ const LIMIT = 3;
 
 export default function NewestComment() {
   const [currentPage, setCurrentPage] = useState(1);
+
+  const { data: userData } = useGetUserMeQuery();
 
   const { data: commenstList, isLoading } = useGetCommentsQuery(
     {
@@ -42,7 +45,11 @@ export default function NewestComment() {
     <>
       <div className={styles.comments_list_container}>
         {commenstList.list.map((comment) => (
-          <CommentComponent key={comment.id} data={comment} />
+          <CommentComponent
+            key={comment.id}
+            data={comment}
+            userId={userData?.id as number}
+          />
         ))}
       </div>
       <Pagination

@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import SearchBar from "./_components/SearchBar/search-bar";
 import styles from "./layout.module.css";
 
@@ -8,7 +9,9 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   return (
     <div className={styles.container}>
-      <SearchBar />
+      <Suspense fallback={<div>로딩중...</div>}>
+        <SearchBar />
+      </Suspense>
       {children}
     </div>
   );

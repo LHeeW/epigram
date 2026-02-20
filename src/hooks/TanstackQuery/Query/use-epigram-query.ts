@@ -70,7 +70,7 @@ export const useGetEpigramCommentsQuery = <
   >,
 ) => {
   return useQuery({
-    queryKey: epigramKeys.comments(id, params),
+    queryKey: epigramKeys.comment(id, params),
     queryFn: () => getEpigramsCommentsList(id, params),
     ...options,
   });

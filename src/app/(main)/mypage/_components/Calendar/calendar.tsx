@@ -3,7 +3,7 @@
 import Calendar from "react-calendar";
 import styles from "./calendar.module.css";
 import "./calendar.css";
-import "react-calendar/dist/calendar.css";
+import "react-calendar/dist/Calendar.css";
 import { useEffect, useState } from "react";
 import { useEmotionLogsMonthlyQuery } from "@/hooks/TanstackQuery/Query/use-emotionlog-query";
 import { useGetUserMeQuery } from "@/hooks/TanstackQuery/Query/use-user-query";

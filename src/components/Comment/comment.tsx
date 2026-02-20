@@ -15,10 +15,9 @@ import styles from "./comment.module.css";
 interface CommentProps {
   data: components["schemas"]["CommentType"];
   userId: number;
-  epigramId: number;
 }
 
-export default function Comment({ data, userId, epigramId }: CommentProps) {
+export default function Comment({ data, userId }: CommentProps) {
   const [isEditing, setIsEditing] = useState(false);
   const { mutate: updateMutate } = useUpdateCommentsMutation();
   const { mutate: deleteMutate } = useDeleteCommentsMutation();
@@ -35,7 +34,7 @@ export default function Comment({ data, userId, epigramId }: CommentProps) {
           updateMutate(
             {
               id: data.id,
-              epigramId: epigramId,
+              epigramId: data.epigramId,
               data: { isPrivate, content },
             },
             {
@@ -79,7 +78,7 @@ export default function Comment({ data, userId, epigramId }: CommentProps) {
                   type="button"
                   onClick={() => {
                     deleteMutate(
-                      { id: data.id, epigramId },
+                      { id: data.id, epigramId: data.epigramId },
                       {
                         onSuccess: () => alert("삭제되었습니다."),
                       },

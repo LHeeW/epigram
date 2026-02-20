@@ -55,12 +55,7 @@ export default function CommentComponent({ id }: CommentComponentProps) {
         {user &&
           commentsList?.pages.map((comments) =>
             comments.list.map((comment) => (
-              <Comment
-                key={comment.id}
-                data={comment}
-                userId={user.id}
-                epigramId={parseInt(id, 10)}
-              />
+              <Comment key={comment.id} data={comment} userId={user.id} />
             )),
           )}
       </div>
