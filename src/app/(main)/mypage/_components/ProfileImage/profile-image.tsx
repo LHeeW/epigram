@@ -10,7 +10,6 @@ import { usePostImageUploadMutation } from "@/hooks/TanstackQuery/Mutation/use-i
 import { usePatchUserMeMutation } from "@/hooks/TanstackQuery/Mutation/use-user-mutation";
 import { useGetUserMeQuery } from "@/hooks/TanstackQuery/Query/use-user-query";
 import { userKeys } from "@/hooks/TanstackQuery/query-keys";
-import { authKeys } from "@/utils/Constants/auth";
 import styles from "./profile-image.module.css";
 
 export default function ProfileImage() {
@@ -55,6 +54,7 @@ export default function ProfileImage() {
     await logout();
     queryClient.clear();
 
+    router.refresh();
     router.push("/");
   };
 
